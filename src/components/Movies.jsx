@@ -79,7 +79,7 @@ const Movie = () => {
           scrollableTarget="scrollableDiv"
           style={{ overflow: "hidden", width: "100%" }}
         >
-          <MainCard data={movie} title={category} />
+          <MainCard data={movie} title="movie" />
         </InfiniteScroll>
       </div>
     </div>

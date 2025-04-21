@@ -6,6 +6,7 @@ import Popular from "./components/Popular";
 import TvShow from "./components/TvShows";
 import People from "./components/People";
 import Movie from "./components/Movies";
+import MovieDetails from "./components/MovieDetails";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/tv-shows" element={<TvShow />} />
         <Route path="/people" element={<People />} />
         <Route path="/movies" element={<Movie />} />
+        <Route path="/movie/details/:id" element={<MovieDetails />} />
       </Routes>
     </div>
   );
