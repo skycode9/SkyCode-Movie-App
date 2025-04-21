@@ -23,7 +23,7 @@ const Topbar = () => {
       const response = await baseUrl.get(`search/multi?query=${searchQuery}`);
       setSearchResults(response.data.results);
     } catch (error) {
-      console.error("Search error:", error);
+      console.error("error:", error);
       setSearchResults([]);
     }
   };
@@ -42,9 +42,8 @@ const Topbar = () => {
   }, [searchQuery]);
 
   return (
-    <div className="w-full h-[10vh] flex items-center justify-center border-b border-zinc-100">
+    <div className="w-full h-[10vh] flex items-center justify-center">
       <div className="relative flex items-center w-full max-w-md rounded-full transition-all duration-300">
-        {/* Improved search bar with background and better styling */}
         <div className="flex items-center w-full rounded-full bg-zinc-800/40 border border-zinc-700 focus-within:border-[#6556CD] focus-within:ring-1 focus-within:ring-[#6556CD] transition-all duration-300">
           <i className="ri-search-line text-zinc-400 ml-4 text-lg"></i>
           <input
