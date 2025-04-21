@@ -8,6 +8,7 @@ import People from "./components/People";
 import Movie from "./components/Movies";
 import MovieDetails from "./components/MovieDetails";
 import Trailer from "./components/templates/Trailer";
+import TvShowDetails from "./components/TvShowDetails";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/movie/details/:id" element={<MovieDetails />}>
           <Route path="trailer" element={<Trailer />} />
         </Route>
+        <Route path="/tv/details/:id" element={<TvShowDetails />}></Route>
       </Routes>
     </div>
   );
