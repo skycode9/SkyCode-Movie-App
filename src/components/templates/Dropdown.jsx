@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dropdown = ({ label, options, category }) => {
+const Dropdown = ({ label, options, onChange }) => {
   // Create a unique ID based on the label
   const uniqueId = `dropdown-${label.toLowerCase().replace(/\s+/g, "-")}`;
 
@@ -10,7 +10,7 @@ const Dropdown = ({ label, options, category }) => {
         defaultValue={0}
         name={uniqueId}
         id={uniqueId}
-        onChange={category}
+        onChange={onChange}
       >
         <option value="0" disabled>
           {label}
