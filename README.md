@@ -10,7 +10,7 @@
   
   <p>A modern, responsive movie discovery platform built with React, Redux, and Tailwind CSS</p>
   
-  [Demo](https://skycode-movie-app.netlify.app) | [Features](#key-features) | [Installation](#installation) | [Technologies](#technologies) | [Screenshots](#screenshots) | [Contact](#contact)
+  [Demo](https://sky-code-movie-app.vercel.app/) | [Features](#key-features) | [Installation](#installation) | [Technologies](#technologies) | [Screenshots](#screenshots) | [Contact](#contact)
   
 </div>
 
