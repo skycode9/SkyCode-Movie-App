@@ -10,6 +10,8 @@ import MovieDetails from "./components/MovieDetails";
 import Trailer from "./components/templates/Trailer";
 import TvShowDetails from "./components/TvShowDetails";
 import PersonDetails from "./components/PersonDetails";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
@@ -28,6 +30,8 @@ const App = () => {
         <Route path="/tv/details/:id" element={<TvShowDetails />}>
           <Route path="trailer" element={<Trailer />} />
         </Route>
+        <Route path="/about" element={<About />} />
+        <Route path="/contact-us" element={<Contact />} />
       </Routes>
     </div>
   );
