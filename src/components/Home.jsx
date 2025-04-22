@@ -70,7 +70,7 @@ const Home = () => {
             <Dropdown
               label="Filter"
               options={["tv", "movie", "all"]}
-              category={(e) => setSelectedFilter(e.target.value.toLowerCase())}
+              onChange={(e) => setSelectedFilter(e.target.value.toLowerCase())}
             />
           </div>
           <Card trending={trending} />

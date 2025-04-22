@@ -44,12 +44,33 @@ cd SkyCode-Movie-App
 # Install dependencies
 npm install
 
+# Create a .env file in the root directory with your TMDB API key
+# Example .env file:
+# VITE_TMDB_API_KEY=your_api_key_here
+# VITE_API_BASE_URL=https://api.themoviedb.org/3
+
 # Start the development server
 npm run dev
 
 # Build for production
 npm run build
 ```
+
+## 🔑 Environment Variables
+
+The application requires the following environment variables to be set in a `.env` file in the root directory:
+
+```
+VITE_TMDB_API_KEY=your_tmdb_api_key
+VITE_API_BASE_URL=https://api.themoviedb.org/3
+```
+
+To obtain a TMDB API key:
+1. Create an account on [The Movie Database](https://www.themoviedb.org/)
+2. Go to your account settings
+3. Click on the "API" section
+4. Follow the instructions to request an API key
+5. Once approved, copy your API key to the `.env` file
 
 ## 🔧 Technologies
 
