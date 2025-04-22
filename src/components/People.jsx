@@ -71,7 +71,7 @@ const People = () => {
           scrollableTarget="scrollableDiv"
           style={{ overflow: "hidden", width: "100%" }}
         >
-          <MainCard data={people} title={category} />
+          <MainCard data={people} title="person" />
         </InfiniteScroll>
       </div>
     </div>
