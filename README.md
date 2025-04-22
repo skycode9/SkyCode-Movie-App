@@ -66,6 +66,7 @@ VITE_API_BASE_URL=https://api.themoviedb.org/3
 ```
 
 To obtain a TMDB API key:
+
 1. Create an account on [The Movie Database](https://www.themoviedb.org/)
 2. Go to your account settings
 3. Click on the "API" section
@@ -92,6 +93,95 @@ To obtain a TMDB API key:
 ### APIs
 
 - **TMDB API**: The Movie Database API for fetching movie, TV, and person data
+
+## 🔄 Redux Implementation
+
+The application uses Redux with Redux Toolkit for state management, particularly for handling detailed data for movies, TV shows, and people profiles. The implementation follows a modular approach with separate slices for different entity types.
+
+### Store Structure
+
+```
+src/
+└── store/
+    ├── store.jsx              # Main Redux store configuration
+    ├── reducers/              # Redux slices (reducers + actions)
+    │   ├── movieSlice.jsx     # Movie state management
+    │   ├── tvSlice.jsx        # TV show state management
+    │   └── personSlice.jsx    # Person/actor state management
+    └── actions/               # Async action creators
+        ├── movieActions.jsx   # Movie-related async actions
+        ├── tvActions.jsx      # TV-related async actions
+        └── personActions.jsx  # Person-related async actions
+```
+
+### Redux Slices
+
+Each slice manages a specific domain of the application:
+
+- **Movie Slice**: Handles movie details, recommendations, videos, and watch providers
+- **TV Slice**: Manages TV show details, seasons, episodes, and related content
+- **Person Slice**: Controls actor/director profiles, filmography, and biographical information
+
+### Async Actions
+
+The application uses thunk middleware to handle asynchronous operations:
+
+```jsx
+// Example from movieActions.jsx
+export const asyncLoadMovie = (id) => async (dispatch, getState) => {
+  try {
+    // Multiple API calls to gather comprehensive movie data
+    const details = await baseUrl.get(`/movie/${id}`);
+    const externalId = await baseUrl.get(`/movie/${id}/external_ids`);
+    const recommendations = await baseUrl.get(`/movie/${id}/recommendations`);
+    // ...more API calls
+
+    // Combine all data into a single object
+    let ultimateDetails = {
+      details: details.data,
+      externalId: externalId.data,
+      recommendations: recommendations.data.results,
+      // ...more data
+    };
+
+    // Dispatch to Redux store
+    dispatch(loadMovie(ultimateDetails));
+  } catch (error) {
+    console.error(error);
+  }
+};
+```
+
+### Component Integration
+
+Components connect to the Redux store using hooks:
+
+```jsx
+// Example from MovieDetails.jsx
+const dispatch = useDispatch();
+const movieData = useSelector((state) => state.movie.info);
+
+useEffect(() => {
+  // Fetch movie data when component mounts
+  dispatch(asyncLoadMovie(id));
+
+  // Clean up when component unmounts
+  return () => {
+    dispatch(removeMovie());
+  };
+}, [id, dispatch]);
+```
+
+### Benefits of the Redux Implementation
+
+1. **Centralized State**: All application data is stored in a single place
+2. **Optimized Data Fetching**: Multiple API calls are combined into single actions
+3. **Clean Component Logic**: Components focus on rendering, not data fetching
+4. **Consistent Data Structure**: Each entity type has a predictable state shape
+5. **Efficient Updates**: Only affected components re-render when data changes
+6. **Improved Developer Experience**: Redux DevTools integration for debugging
+
+This Redux architecture enables efficient data management across the application, providing a seamless user experience even when dealing with complex nested data from the TMDB API.
 
 <!-- ## 📱 Screenshots -->
 
