@@ -120,32 +120,29 @@ const MovieDetails = () => {
 
       {/* Part-2 Main */}
       <div className="w-full flex flex-col md:flex-row gap-6 md:gap-0">
-        {sectionsLoading.details ? (
-          <Loading />
-        ) : (
-          <div className="w-full md:w-[30%] flex justify-center md:justify-start">
-            <img
-              src={
-                movieData.details.poster_path ||
-                movieData.details.backdrop_path ||
-                movieData.details.profile_path
-                  ? `https://image.tmdb.org/t/p/w500${
-                      movieData.details.poster_path ||
-                      movieData.details.backdrop_path
-                    }`
-                  : noImage
-              }
-              alt={
-                movieData.details.title ||
-                movieData.details.name ||
-                movieData.details.original_title ||
-                movieData.details.original_name ||
-                "Movie poster"
-              }
-              className="h-auto max-h-[50vh] md:max-h-[70vh] w-auto max-w-full rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] mt-2"
-            />
-          </div>
-        )}
+        <div className="w-full md:w-[30%] flex justify-center md:justify-start">
+          <img
+            src={
+              movieData.details.poster_path ||
+              movieData.details.backdrop_path ||
+              movieData.details.profile_path
+                ? `https://image.tmdb.org/t/p/w500${
+                    movieData.details.poster_path ||
+                    movieData.details.backdrop_path
+                  }`
+                : noImage
+            }
+            alt={
+              movieData.details.title ||
+              movieData.details.name ||
+              movieData.details.original_title ||
+              movieData.details.original_name ||
+              "Movie poster"
+            }
+            className="h-auto max-h-[50vh] md:max-h-[70vh] w-auto max-w-full rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] mt-2"
+          />
+        </div>
+
         <div className="content w-full md:w-[67.5%] md:ml-[2.5%]">
           <h1 className="text-2xl md:text-4xl font-bold text-white">
             {movieData.details.title ||
